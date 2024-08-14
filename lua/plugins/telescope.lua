@@ -23,8 +23,8 @@ return {
 			vim.keymap.set("n", "<leader>st", builtin.live_grep, {})
 			vim.keymap.set("n", "<leader>bb", builtin.buffers, {})
 			vim.keymap.set("n", "<leader>sp", ":lua require'telescope'.extensions.project.project{}<CR>", {})
-      vim.keymap.set("n", "<leader>sd", builtin.diagnostics, {})
-      vim.keymap.set("n", "<leader>ss", builtin.resume, {})
+			vim.keymap.set("n", "<leader>sd", builtin.diagnostics, {})
+			vim.keymap.set("n", "<leader>ss", builtin.resume, {})
 		end,
 	},
 	{
