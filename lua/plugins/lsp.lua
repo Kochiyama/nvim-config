@@ -22,7 +22,7 @@ return {
 					"sqlls",
 					"taplo",
 					"yamlls",
-          "gopls"
+					"gopls",
 				},
 			})
 		end,
@@ -34,6 +34,34 @@ return {
 
 			local lspconfig = require("lspconfig")
 
+			lspconfig.emmet_ls.setup({
+				capabilities = capabilities,
+				filetypes = {
+					"css",
+					"eruby",
+					"html",
+					"javascript",
+					"javascriptreact",
+					"less",
+					"sass",
+					"scss",
+					"svelte",
+					"pug",
+					"typescriptreact",
+					"vue",
+				},
+				init_options = {
+					html = {
+						options = {
+							-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+							["bem.enabled"] = true,
+						},
+					},
+				},
+			})
+			lspconfig.mdx_analyzer.setup({
+				capabilities = capabilities,
+			})
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 			})
@@ -43,7 +71,6 @@ return {
 			lspconfig.rust_analyzer.setup({
 				capabilities = capabilities,
 			})
-			lspconfig.biome.setup({})
 			lspconfig.tsserver.setup({
 				capabilities = capabilities,
 			})
@@ -68,9 +95,9 @@ return {
 			lspconfig.yamlls.setup({
 				capabilities = capabilities,
 			})
-      lspconfig.gopls.setup({
-        capabilities = capabilities,
-      })
+			lspconfig.gopls.setup({
+				capabilities = capabilities,
+			})
 
 			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})

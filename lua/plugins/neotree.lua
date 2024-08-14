@@ -15,7 +15,7 @@ return {
 			},
 			filesystem = {
         highlight = "Comment",
-				follow_current_file = false,
+				follow_current_file = true,
 				filtered_items = {
 					visible = false,
 					hide_dotfiles = false,

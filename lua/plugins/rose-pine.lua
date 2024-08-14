@@ -55,8 +55,11 @@ return {
 
         TelescopeSelectionCaret = { fg = "rose", bg = "none" },
         TelescopeSelection = { fg = "pine", bg = "none" },
+
+        Cursor = { fg = "pine", bg = "gold" },
+        lCursor = { fg = "pine", bg = "gold" },
       },
     })
-    vim.cmd("colorscheme rose-pine")
+    -- vim.cmd("colorscheme rose-pine")
   end,
 }
