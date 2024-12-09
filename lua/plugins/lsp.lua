@@ -13,7 +13,6 @@ return {
           "lua_ls",
           "prismals",
           "rust_analyzer",
-          "biome",
           "tsserver",
           "tailwindcss",
           "docker_compose_language_service",
@@ -24,6 +23,7 @@ return {
           "yamlls",
           "gopls",
           "pyright",
+          "eslint",
         },
       })
     end,
