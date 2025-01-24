@@ -13,7 +13,7 @@ return {
           "lua_ls",
           "prismals",
           "rust_analyzer",
-          "tsserver",
+          "ts_ls",
           "tailwindcss",
           "docker_compose_language_service",
           "dockerls",
@@ -24,6 +24,8 @@ return {
           "gopls",
           "pyright",
           "eslint",
+          "emmet_ls",
+          "eslint",
         },
       })
     end,
@@ -32,6 +34,9 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+      -- Enable formatting html with vscode-html-language-server
+      capabilities.textDocument.completion.completionItem.snippetSupport = true
 
       local lspconfig = require("lspconfig")
 
@@ -78,8 +83,13 @@ return {
       lspconfig.rust_analyzer.setup({
         capabilities = capabilities,
       })
-      lspconfig.tsserver.setup({
+      lspconfig.ts_ls.setup({
         capabilities = capabilities,
+        on_attach = function(client)
+          if client.resolved_capabilities then
+            client.resolved_capabilities.document_formatting = false
+          end
+        end,
       })
       lspconfig.tailwindcss.setup({
         capabilities = capabilities,
