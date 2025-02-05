@@ -35,16 +35,15 @@ return {
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-      -- Enable formatting html with vscode-html-language-server
       capabilities.textDocument.completion.completionItem.snippetSupport = true
 
       local lspconfig = require("lspconfig")
 
       lspconfig.cssls.setup({
-        capabilities = capabilities
+        capabilities = capabilities,
       })
       lspconfig.html.setup({
-        capabilities = capabilities
+        capabilities = capabilities,
       })
       lspconfig.emmet_ls.setup({
         capabilities = capabilities,
@@ -83,7 +82,7 @@ return {
       lspconfig.rust_analyzer.setup({
         capabilities = capabilities,
       })
-      lspconfig.ts_ls.setup({
+      lspconfig.tsserver.setup({
         capabilities = capabilities,
         on_attach = function(client)
           if client.resolved_capabilities then

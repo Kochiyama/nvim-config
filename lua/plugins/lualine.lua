@@ -6,9 +6,9 @@ return {
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,
-				theme = "rose-pine",
-				component_separators = { left = "", right = "" },
-				section_separators = { left = "", right = "" },
+				theme = "auto",
+				-- component_separators = { left = "", right = "" },
+				-- section_separators = { left = "", right = "󱎕" },
 				disabled_filetypes = {
 					statusline = {
 						"neo-tree",
@@ -26,14 +26,19 @@ return {
 			},
 			sections = {
 				lualine_a = { "mode" },
-				lualine_b = { "branch", "diff", "diagnostics" },
-				lualine_c = { "filename" },
-				lualine_x = {
-					{ git_blame.get_current_blame_text, cond = git_blame.is_blame_text_available },
-					"filetype",
+				lualine_b = {
+					"branch",
+					"diff",
+					"diagnostics",
 				},
-				lualine_y = { "progress" },
-				lualine_z = { "location" },
+				lualine_c = {
+					{ git_blame.get_current_blame_text, cond = git_blame.is_blame_text_available },
+				},
+				lualine_x = {
+					"location",
+				},
+				lualine_y = { "filetype" },
+				lualine_z = { { "filename", path = 1 } },
 			},
 			inactive_sections = {
 				lualine_a = {},
