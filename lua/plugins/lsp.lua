@@ -82,7 +82,7 @@ return {
       lspconfig.rust_analyzer.setup({
         capabilities = capabilities,
       })
-      lspconfig.tsserver.setup({
+      lspconfig.ts_ls.setup({
         capabilities = capabilities,
         on_attach = function(client)
           if client.resolved_capabilities then
