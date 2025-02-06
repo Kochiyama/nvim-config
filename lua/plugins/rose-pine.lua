@@ -60,6 +60,6 @@ return {
 				lCursor = { fg = "pine", bg = "gold" },
 			},
 		})
-		-- vim.cmd("colorscheme rose-pine")
+		vim.cmd("colorscheme rose-pine")
 	end,
 }
