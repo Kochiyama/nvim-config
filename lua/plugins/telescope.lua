@@ -19,12 +19,17 @@ return {
 
 			local builtin = require("telescope.builtin")
 
-			vim.keymap.set("n", "<leader>sf", builtin.find_files, {})
-			vim.keymap.set("n", "<leader>st", builtin.live_grep, {})
-			vim.keymap.set("n", "<leader>bb", builtin.buffers, {})
-			vim.keymap.set("n", "<leader>sp", ":lua require'telescope'.extensions.project.project{}<CR>", {})
-			vim.keymap.set("n", "<leader>sd", builtin.diagnostics, {})
-			vim.keymap.set("n", "<leader>ss", builtin.resume, {})
+			vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "Search for Files" })
+			vim.keymap.set("n", "<leader>st", builtin.live_grep, { desc = "Search for Text" })
+			vim.keymap.set("n", "<leader>bb", builtin.buffers, { desc = "Buffers" })
+			vim.keymap.set(
+				"n",
+				"<leader>sp",
+				":lua require'telescope'.extensions.project.project{}<CR>",
+				{ desc = "Projects" }
+			)
+			vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "Diagnostics" })
+			vim.keymap.set("n", "<leader>ss", builtin.resume, { desc = "Resume Search" })
 		end,
 	},
 	{
