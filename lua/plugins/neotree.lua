@@ -97,6 +97,6 @@ return {
 		vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
 		vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSignHint" })
 
-		vim.keymap.set("n", "<leader>e", ":Neotree filesystem toggle left<CR>", {})
+		vim.keymap.set("n", "<leader>e", ":Neotree filesystem toggle left<CR>", { desc = "toggle file explorer" })
 	end,
 }
