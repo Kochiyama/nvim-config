@@ -25,7 +25,6 @@ return {
 					"pyright",
 					"eslint",
 					"emmet_ls",
-					"eslint",
 				},
 			})
 		end,
