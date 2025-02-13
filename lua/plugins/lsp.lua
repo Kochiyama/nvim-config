@@ -40,7 +40,7 @@ return {
 
 			lspconfig.biome.setup({
 				capabilities = capabilities,
-				on_new_config = function(new_config, root_dir)
+				on_new_config = function(_, root_dir)
 					local biome_config = vim.fn.findfile("biome.json", root_dir .. ";")
 					if biome_config == "" then
 						return nil
