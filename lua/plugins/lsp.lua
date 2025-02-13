@@ -32,6 +32,20 @@ return {
 					capabilities = capabilities,
 				})
 			end,
+			["biome"] = function()
+				lspconfig.biome.setup({
+					capabilities = capabilities,
+					root_dir = lspconfig.util.root_pattern("biome.json"),
+					single_file_support = false,
+				})
+			end,
+			["denols"] = function()
+				lspconfig.denols.setup({
+					capabilities = capabilities,
+					root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+					single_file_support = false,
+				})
+			end,
 			["emmet_ls"] = function()
 				lspconfig.emmet_ls.setup({
 					capabilities = capabilities,
@@ -66,6 +80,5 @@ return {
 		vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Info" })
 		vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename" })
 		vim.keymap.set({ "n", "v" }, "<leader>la", vim.lsp.buf.code_action, { desc = "Code Actions" })
-		vim.keymap.set("n", "<leader>lf", require("conform").format, { desc = "Format" })
 	end,
 }

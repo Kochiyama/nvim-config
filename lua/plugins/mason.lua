@@ -31,6 +31,7 @@ return {
 				"html",
 				"cssls",
 				"tailwindcss",
+				"denols",
 
 				-- Rust
 				"rust_analyzer",
@@ -60,7 +61,6 @@ return {
 				"pylint",
 				"eslint_d",
 				"biome",
-				"rust_fmt",
 			},
 		})
 	end,
