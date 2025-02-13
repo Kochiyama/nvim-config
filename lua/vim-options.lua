@@ -21,6 +21,9 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 	virtual_text = false,
 })
 vim.o.shortmess = "at"
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.foldenable = false
 
 -- Keymaps
 vim.keymap.set("n", "<leader>sc", ":nohl<CR>", { desc = "Search Clear" })
@@ -42,3 +45,4 @@ vim.keymap.set(
 	"<cmd>:MarkdownPreviewStop<CR>",
 	{ desc = "Close Markdown Preview", noremap = true, silent = true }
 )
+vim.keymap.set("n", "<leader>z", "za", { noremap = true, silent = true, desc = "Toggle Fold" })
