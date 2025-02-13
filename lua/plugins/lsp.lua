@@ -38,6 +38,16 @@ return {
 
 			local lspconfig = require("lspconfig")
 
+			lspconfig.biome.setup({
+				capabilities = capabilities,
+				on_new_config = function(new_config, root_dir)
+					local biome_config = vim.fn.findfile("biome.json", root_dir .. ";")
+          print(biome_config)
+					if biome_config == "" then
+						return nil
+					end
+				end,
+			})
 			lspconfig.cssls.setup({
 				capabilities = capabilities,
 			})
