@@ -14,11 +14,18 @@ return {
 					layout_config = {
 						vertical = { width = 0.5 },
 					},
+					file_ignore_patterns = { "%.git/", "%node_modules/", "%.next/" },
+				},
+				pickers = {
+					find_files = {
+						hidden = true,
+					},
 				},
 			})
 
 			local builtin = require("telescope.builtin")
 
+			vim.keymap.set("n", "<leader>ts", builtin.colorscheme, { desc = "Theme Select" })
 			vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "Search for Files" })
 			vim.keymap.set("n", "<leader>st", builtin.live_grep, { desc = "Search for Text" })
 			vim.keymap.set("n", "<leader>bb", builtin.buffers, { desc = "Buffers" })
