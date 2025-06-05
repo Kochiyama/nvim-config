@@ -4,6 +4,7 @@ return {
 	config = function()
 		require("rose-pine").setup({
 			variant = "moon",
+			backend = "kitty",
 			extend_background_behind_borders = true,
 			styles = {
 				bold = true,
@@ -60,5 +61,7 @@ return {
 				lCursor = { fg = "pine", bg = "gold" },
 			},
 		})
+
+		vim.cmd("colorscheme rose-pine")
 	end,
 }
