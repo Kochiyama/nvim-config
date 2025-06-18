@@ -5,12 +5,24 @@ return {
 		require("rose-pine").setup({
 			variant = "moon",
 			backend = "kitty",
+			dark_variant = "main",
+			dim_inactive_windows = false,
 			extend_background_behind_borders = true,
+			integrations = {},
+			kitty_method = "normal",
+
+			enable = {
+				terminal = true,
+				legacy_highlights = true,
+				migrations = true,
+			},
+
 			styles = {
 				bold = true,
 				italic = true,
 				transparency = true,
 			},
+
 			groups = {
 				border = "muted",
 				link = "iris",
@@ -41,25 +53,38 @@ return {
 				h5 = "pine",
 				h6 = "foam",
 			},
+
+			palette = {},
+
 			highlight_groups = {
 				EndOfBuffer = { fg = "surface", bg = "none" },
 
 				TelescopeBorder = { fg = "highlight_high", bg = "none" },
 				TelescopeNormal = { bg = "none" },
-
+				TelescopePromptNormal = { bg = "base" },
+				TelescopeResultsNormal = { fg = "subtle", bg = "none" },
+				TelescopeSelection = { fg = "pine", bg = "none" },
+				TelescopeSelectionCaret = { fg = "rose", bg = "none" },
 				TelescopePreviewBorder = { fg = "highlight_high", bg = "none" },
 				TelescopePreviewNormal = { bg = "none" },
 				TelescopePreviewTitle = { fg = "text", bg = "none", bold = true },
-
-				TelescopeResultsNormal = { fg = "subtle", bg = "none" },
 				TelescopeMatching = { fg = "gold" },
-
-				TelescopeSelectionCaret = { fg = "rose", bg = "none" },
-				TelescopeSelection = { fg = "pine", bg = "none" },
 
 				Cursor = { fg = "pine", bg = "gold" },
 				lCursor = { fg = "pine", bg = "gold" },
 			},
+
+			before_highlight = function(group, highlight, palette)
+				-- Disable all undercurls
+				-- if highlight.undercurl then
+				--     highlight.undercurl = false
+				-- end
+				--
+				-- Change palette colour
+				-- if highlight.fg == palette.pine then
+				--     highlight.fg = palette.foam
+				-- end
+			end,
 		})
 
 		vim.cmd("colorscheme rose-pine")
