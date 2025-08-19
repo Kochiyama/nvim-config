@@ -32,6 +32,38 @@ return {
 					capabilities = capabilities,
 				})
 			end,
+			["eslint"] = function()
+				lspconfig.eslint.setup({
+					capabilities = capabilities,
+					root_dir = lspconfig.util.root_pattern(
+						"eslint.config.js",
+						"eslint.config.ts",
+						".eslintrc",
+						".eslintrc.js",
+						".eslintrc.cjs",
+						".eslintrc.yaml",
+						".eslintrc.yml",
+						".eslintrc.json"
+					),
+					filetypes = {
+						-- Default filetypes
+						"javascript",
+						"javascriptreact",
+						"javascript.jsx",
+						"typescript",
+						"typescriptreact",
+						"typescript.tsx",
+						"vue",
+						"svelte",
+						"astro",
+						-- Additional filetypes
+						"css",
+						"markdown",
+						"json",
+					},
+					single_file_support = true,
+				})
+			end,
 			["biome"] = function()
 				lspconfig.biome.setup({
 					capabilities = capabilities,

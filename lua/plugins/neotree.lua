@@ -5,7 +5,6 @@ return {
 		"nvim-lua/plenary.nvim",
 		"nvim-tree/nvim-web-devicons",
 		"MunifTanjim/nui.nvim",
-		"3rd/image.nvim",
 	},
 	config = function()
 		require("neo-tree").setup({
@@ -14,10 +13,10 @@ return {
 				width = 30,
 			},
 			filesystem = {
-        highlight = "Comment",
+				highlight = "Comment",
 				follow_current_file = {
-          enabled = true
-        },
+					enabled = true,
+				},
 				filtered_items = {
 					visible = false,
 					hide_dotfiles = false,

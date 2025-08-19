@@ -2,7 +2,14 @@ return {
 	"yetone/avante.nvim",
 	event = "VeryLazy",
 	version = false, -- Never set this value to "*"! Never!
-	opts = {},
+	opts = {
+		windows = {
+			width = 40,
+			sidebar_header = {
+				enabled = false,
+			},
+		},
+	},
 	build = "make",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",

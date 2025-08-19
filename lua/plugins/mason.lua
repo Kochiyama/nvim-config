@@ -32,6 +32,7 @@ return {
 				"cssls",
 				"tailwindcss",
 				"denols",
+				"eslint",
 
 				-- Rust
 				"rust_analyzer",
@@ -61,6 +62,7 @@ return {
 				"pylint",
 				"eslint_d",
 				"biome",
+				"prettier",
 			},
 		})
 	end,
