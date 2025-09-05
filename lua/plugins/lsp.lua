@@ -62,6 +62,8 @@ return {
 			},
 		})
 
+		local lspconfig_util = require("lspconfig.util")
+
 		vim.lsp.config("eslint", {
 			filetypes = {
 				"javascript",
@@ -77,7 +79,7 @@ return {
 				"markdown",
 				"json",
 			},
-			root_markers = {
+			root_dir = lspconfig_util.root_pattern(
 				"eslint.config.js",
 				"eslint.config.ts",
 				".eslintrc",
@@ -85,20 +87,25 @@ return {
 				".eslintrc.cjs",
 				".eslintrc.yaml",
 				".eslintrc.yml",
-				".eslintrc.json",
-			},
+				".eslintrc.json"
+			),
 		})
 
 		vim.lsp.config("biome", {
-			root_markers = { "biome.json", ".biome.json", "biome.jsonc", ".biome.jsonc" },
+			root_dir = require("lspconfig.util").root_pattern(
+				"biome.json",
+				".biome.json",
+				"biome.jsonc",
+				".biome.jsonc"
+			),
 		})
 
 		vim.lsp.config("denols", {
-			root_markers = { "deno.json", "deno.jsonc" },
+			root_dir = require("lspconfig.util").root_pattern("deno.json", "deno.jsonc"),
 		})
 
 		vim.lsp.config("vtsls", {
-			root_markers = { "tsconfig.json" },
+			root_dir = require("lspconfig.util").root_pattern("tsconfig.json"),
 		})
 	end,
 }
