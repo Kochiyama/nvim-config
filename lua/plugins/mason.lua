@@ -19,29 +19,19 @@ return {
 			},
 		})
 
-		-- Ensure Language Server Protocols are installed
 		mason_lspconfig.setup({
 			ensure_installed = {
-				-- Lua
 				"lua_ls",
-
-				-- Web
 				"prismals",
-				"ts_ls",
+				"vtsls",
 				"html",
 				"cssls",
 				"tailwindcss",
 				"denols",
 				"eslint",
-
-				-- Rust
 				"rust_analyzer",
-
-				-- Docker
 				"dockerls",
 				"docker_compose_language_service",
-
-				-- General
 				"taplo",
 				"yamlls",
 				"gopls",
@@ -52,14 +42,10 @@ return {
 			},
 		})
 
-		-- Ensure tools are installed
 		mason_tool_installer.setup({
 			ensure_installed = {
 				"prettier",
 				"stylua",
-				"isort",
-				"black",
-				"pylint",
 				"eslint_d",
 				"biome",
 				"prettier",

@@ -7,16 +7,9 @@ return {
 		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
-		-- import lspconfig plugin
 		local lspconfig = require("lspconfig")
-
-		-- import mason_lspconfig plugin
+		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 		local mason_lspconfig = require("mason-lspconfig")
-
-		-- import cmp-nvim-lsp plugin
-		local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
-		local capabilities = cmp_nvim_lsp.default_capabilities()
 
 		capabilities.textDocument.completion.completionItem.snippetSupport = true
 
@@ -26,86 +19,86 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
-		mason_lspconfig.setup_handlers({
-			function(server_name)
-				lspconfig[server_name].setup({
-					capabilities = capabilities,
-				})
-			end,
-			["eslint"] = function()
-				lspconfig.eslint.setup({
-					capabilities = capabilities,
-					root_dir = lspconfig.util.root_pattern(
-						"eslint.config.js",
-						"eslint.config.ts",
-						".eslintrc",
-						".eslintrc.js",
-						".eslintrc.cjs",
-						".eslintrc.yaml",
-						".eslintrc.yml",
-						".eslintrc.json"
-					),
-					filetypes = {
-						-- Default filetypes
-						"javascript",
-						"javascriptreact",
-						"javascript.jsx",
-						"typescript",
-						"typescriptreact",
-						"typescript.tsx",
-						"vue",
-						"svelte",
-						"astro",
-						-- Additional filetypes
-						"css",
-						"markdown",
-						"json",
-					},
-					single_file_support = true,
-				})
-			end,
-			["biome"] = function()
-				lspconfig.biome.setup({
-					capabilities = capabilities,
-					root_dir = lspconfig.util.root_pattern("biome.json"),
-					single_file_support = false,
-				})
-			end,
-			["denols"] = function()
-				lspconfig.denols.setup({
-					capabilities = capabilities,
-					root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-					single_file_support = false,
-				})
-			end,
-			["emmet_ls"] = function()
-				lspconfig.emmet_ls.setup({
-					capabilities = capabilities,
-					filetypes = {
-						"css",
-						"eruby",
-						"html",
-						"javascript",
-						"javascriptreact",
-						"less",
-						"sass",
-						"scss",
-						"svelte",
-						"pug",
-						"typescriptreact",
-						"vue",
-					},
-					init_options = {
-						html = {
-							options = {
-								-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-								["bem.enabled"] = true,
-							},
-						},
-					},
-				})
-			end,
-		})
+		-- mason_lspconfig.setup_handlers({
+		-- 	function(server_name)
+		-- 		lspconfig[server_name].setup({
+		-- 			capabilities = capabilities,
+		-- 		})
+		-- 	end,
+		-- 	["eslint"] = function()
+		-- 		lspconfig.eslint.setup({
+		-- 			capabilities = capabilities,
+		-- 			root_dir = lspconfig.util.root_pattern(
+		-- 				"eslint.config.js",
+		-- 				"eslint.config.ts",
+		-- 				".eslintrc",
+		-- 				".eslintrc.js",
+		-- 				".eslintrc.cjs",
+		-- 				".eslintrc.yaml",
+		-- 				".eslintrc.yml",
+		-- 				".eslintrc.json"
+		-- 			),
+		-- 			filetypes = {
+		-- 				-- Default filetypes
+		-- 				"javascript",
+		-- 				"javascriptreact",
+		-- 				"javascript.jsx",
+		-- 				"typescript",
+		-- 				"typescriptreact",
+		-- 				"typescript.tsx",
+		-- 				"vue",
+		-- 				"svelte",
+		-- 				"astro",
+		-- 				-- Additional filetypes
+		-- 				"css",
+		-- 				"markdown",
+		-- 				"json",
+		-- 			},
+		-- 			single_file_support = true,
+		-- 		})
+		-- 	end,
+		-- 	["biome"] = function()
+		-- 		lspconfig.biome.setup({
+		-- 			capabilities = capabilities,
+		-- 			root_dir = lspconfig.util.root_pattern("biome.json"),
+		-- 			single_file_support = false,
+		-- 		})
+		-- 	end,
+		-- 	["denols"] = function()
+		-- 		lspconfig.denols.setup({
+		-- 			capabilities = capabilities,
+		-- 			root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+		-- 			single_file_support = false,
+		-- 		})
+		-- 	end,
+		-- 	["emmet_ls"] = function()
+		-- 		lspconfig.emmet_ls.setup({
+		-- 			capabilities = capabilities,
+		-- 			filetypes = {
+		-- 				"css",
+		-- 				"eruby",
+		-- 				"html",
+		-- 				"javascript",
+		-- 				"javascriptreact",
+		-- 				"less",
+		-- 				"sass",
+		-- 				"scss",
+		-- 				"svelte",
+		-- 				"pug",
+		-- 				"typescriptreact",
+		-- 				"vue",
+		-- 			},
+		-- 			init_options = {
+		-- 				html = {
+		-- 					options = {
+		-- 						-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+		-- 						["bem.enabled"] = true,
+		-- 					},
+		-- 				},
+		-- 			},
+		-- 		})
+		-- 	end,
+		-- })
 
 		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Goto Definition" })
