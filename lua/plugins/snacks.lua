@@ -20,7 +20,7 @@ return {
 					siblings = false,
 				},
 				animate = {
-					enabled = true,
+					enabled = false,
 					easing = "outQuad",
 					duration = {
 						step = 20,
