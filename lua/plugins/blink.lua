@@ -33,6 +33,7 @@ return {
 					keymap = {
 						["<CR>"] = { "accept_and_enter", "fallback" },
 					},
+					filetypes_to_exclude = { "avante" },
 				},
 				completion = {
 					menu = {

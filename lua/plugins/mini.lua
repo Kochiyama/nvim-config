@@ -19,7 +19,7 @@ return {
 				hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
 			},
 		})
-		require("mini.notify").setup()
+		-- require("mini.notify").setup()
 		require("mini.icons").setup()
 		MiniIcons.mock_nvim_web_devicons()
 	end,

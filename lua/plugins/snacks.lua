@@ -46,7 +46,7 @@ return {
 				configure = true,
 			},
 			notifier = {
-				enabled = true,
+				enabled = false,
 			},
 			statuscolumn = {
 				enabled = true,
